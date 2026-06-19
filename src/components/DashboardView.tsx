@@ -119,16 +119,26 @@ export default function DashboardView({
         <div className="absolute left-[25%] top-[-10px] w-24 h-24 bg-yellow-400/10 rounded-full blur-xl pointer-events-none"></div>
 
         <div className="flex justify-between items-start">
-          <div className="space-y-1">
-            <span className="text-[9px] bg-red-600 font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full inline-block border border-red-500">
-              {userData.isRegistered ? (language === 'ta' ? 'அங்கீகரிக்கப்பட்ட உறுப்பினர்' : 'VERIFIED MEMBER') : (language === 'ta' ? 'விருந்தினர் சுயவிவரம்' : 'GUEST PROFILE')}
-            </span>
-            <h2 className="text-base font-black tracking-tight mt-1.5 truncate max-w-[210px] text-white">
-              {language === 'ta' ? 'வணக்கம்,' : 'Welcome,'} {userData.name}!
-            </h2>
-            <p className="text-[10px] text-emerald-100 font-bold select-none">
-              ID: {userData.isRegistered ? userData.membershipNo : 'AINK-GUEST-990'}
-            </p>
+          <div className="flex items-start gap-3">
+            <div className="w-11 h-11 rounded-full bg-white flex items-center justify-center p-1 shadow-sm shrink-0">
+              <img 
+                src="https://res.cloudinary.com/dv16a8l1l/image/upload/v1781078235/AINK_f4nqzl.png" 
+                alt="AINK Logo" 
+                className="w-full h-full object-contain" 
+                referrerPolicy="no-referrer"
+              />
+            </div>
+            <div className="space-y-1">
+              <span className="text-[9px] bg-red-600 font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full inline-block border border-red-500">
+                {userData.isRegistered ? (language === 'ta' ? 'அங்கீகரிக்கப்பட்ட உறுப்பினர்' : 'VERIFIED MEMBER') : (language === 'ta' ? 'விருந்தினர் சுயவிவரம்' : 'GUEST PROFILE')}
+              </span>
+              <h2 className="text-base font-black tracking-tight mt-1 truncate max-w-[160px] text-white">
+                {language === 'ta' ? 'வணக்கம்,' : 'Welcome,'} {userData.name}!
+              </h2>
+              <p className="text-[10px] text-emerald-100 font-bold select-none">
+                ID: {userData.isRegistered ? userData.membershipNo : 'AINK-GUEST-990'}
+              </p>
+            </div>
           </div>
 
           {/* Quick profile photo circle or generic emblem */}

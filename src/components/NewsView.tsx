@@ -59,6 +59,24 @@ export default function NewsView({ language, newsItems, setNewsItems }: NewsView
   return (
     <div className="space-y-4 px-4 pt-4 pb-8" id="party-news-updates-view">
       
+      {/* Official Page Header */}
+      <div className="flex items-center gap-2.5 pb-3 border-b border-slate-100" id="news-section-branding-header">
+        <img 
+          src="https://res.cloudinary.com/dv16a8l1l/image/upload/v1781078235/AINK_f4nqzl.png" 
+          alt="AINK Logo" 
+          className="w-10 h-10 object-contain shrink-0" 
+          referrerPolicy="no-referrer"
+        />
+        <div>
+          <h2 className="text-[13px] font-black text-[#0047AB] tracking-wide uppercase leading-tight">
+            {language === 'ta' ? 'அறிக்கைகள் & செய்திகள்' : 'OFFICIAL STATEMENTS'}
+          </h2>
+          <p className="text-[10px] text-[#008C45] font-extrabold mt-0.5 leading-none">
+            {language === 'ta' ? 'அகில இந்திய நீதி கட்சி ஊடகப் பிரிவு' : 'AINK Media & News Center'}
+          </p>
+        </div>
+      </div>
+      
       {/* Category selector pill bar */}
       <div className="flex bg-slate-100 rounded-xl p-1 border border-slate-150 select-none">
         <button

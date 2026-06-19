@@ -124,15 +124,13 @@ export default function Sidebar({
 
           {/* Party Seal / Emblem and Name */}
           <div className="flex items-center gap-3 mt-2">
-            <div className="w-12 h-12 rounded-full border-2 border-white bg-white flex items-center justify-center shadow-lg p-1">
-              {/* Scaled/designed SVG logo */}
-              <svg viewBox="0 0 100 100" className="w-full h-full text-[#0047AB]">
-                <line x1="50" y1="15" x2="50" y2="85" stroke="currentColor" strokeWidth="8" />
-                <line x1="25" y1="50" x2="75" y2="50" stroke="currentColor" strokeWidth="8" />
-                <circle cx="50" cy="50" r="16" fill="#008C45" stroke="white" strokeWidth="3" />
-                <polygon points="50,15 42,32 58,32" fill="red" />
-                <polygon points="50,85 42,68 58,68" fill="red" />
-              </svg>
+            <div className="w-12 h-12 rounded-full border-2 border-white bg-white flex items-center justify-center shadow-lg p-1.5 shrink-0">
+              <img 
+                src="https://res.cloudinary.com/dv16a8l1l/image/upload/v1781078235/AINK_f4nqzl.png" 
+                alt="AINK Logo" 
+                className="w-full h-full object-contain" 
+                referrerPolicy="no-referrer"
+              />
             </div>
             <div>
               <h3 className="font-extrabold text-sm tracking-wide leading-tight">AINK</h3>

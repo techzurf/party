@@ -41,6 +41,7 @@ import EventsView from './components/EventsView';
 import VolunteeringView from './components/VolunteeringView';
 import ContactView from './components/ContactView';
 import NotificationsView from './components/NotificationsView';
+import AdminPortalView from './components/AdminPortalView';
 
 // Preset Avatars for pre-fill simulation
 const PRESET_PROFILE_PHOTOS = [
@@ -52,6 +53,15 @@ const PRESET_PROFILE_PHOTOS = [
 export default function App() {
   const [language, setLanguage] = useState<Language>('ta');
   const [currentScreen, setCurrentScreen] = useState<ScreenId>('splash');
+  const [viewPortal, setViewPortal] = useState<'user' | 'admin'>(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('portal') === 'admin' || params.get('view') === 'admin') {
+        return 'admin';
+      }
+    }
+    return 'user';
+  });
 
   // Core application database/states
   const [userData, setUserData] = useState<UserData>({
@@ -137,6 +147,39 @@ export default function App() {
     setCurrentScreen('splash');
   };
 
+  if (viewPortal === 'admin') {
+    return (
+      <div className="w-full min-h-screen flex flex-col bg-[#F0F4F8] text-slate-800 overflow-x-hidden relative" id="aink-root-admin-container">
+        <AdminPortalView
+          language={language}
+          newsItems={newsItems}
+          setNewsItems={setNewsItems}
+          eventItems={eventItems}
+          setEventItems={setEventItems}
+          notifications={notifications}
+          setNotifications={setNotifications}
+          currentUserData={userData}
+          setCurrentScreen={(screen) => {
+            setViewPortal('user');
+            setCurrentScreen(screen);
+          }}
+        />
+
+        {/* Floating Toggle to switch back to User App readily */}
+        <div className="fixed bottom-6 right-6 z-[99999]">
+          <button 
+            onClick={() => setViewPortal('user')}
+            className="bg-slate-900 border border-slate-700 hover:bg-slate-800 text-white font-black py-2.5 px-4 rounded-full shadow-2xl text-xs flex items-center gap-2 cursor-pointer transition-all hover:scale-105 active:scale-95 select-none"
+            id="portal-toggle-to-user"
+          >
+            <span className="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse"></span>
+            <span>📱 Go back to Mobile App</span>
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="w-full min-h-screen flex flex-col bg-[#F5F7FA] text-slate-800 overflow-x-hidden relative" id="aink-root-app-container">
       
@@ -175,13 +218,12 @@ export default function App() {
 
           {/* Party logo & name centered */}
           <div className="flex items-center justify-center gap-2 w-2/4 cursor-pointer" onClick={() => setCurrentScreen('dashboard')}>
-            <div className="w-8 h-8 rounded-full bg-[#0B47AB] flex items-center justify-center p-0.5 shadow-sm shrink-0">
-              <svg viewBox="0 0 100 100" className="w-full h-full text-white">
-                <line x1="50" y1="15" x2="50" y2="85" stroke="currentColor" strokeWidth="10" />
-                <line x1="25" y1="50" x2="75" y2="50" stroke="currentColor" strokeWidth="10" />
-                <circle cx="50" cy="50" r="18" fill="#008C45" stroke="white" strokeWidth="4" />
-              </svg>
-            </div>
+            <img 
+              src="https://res.cloudinary.com/dv16a8l1l/image/upload/v1781078235/AINK_f4nqzl.png" 
+              alt="AINK Logo" 
+              className="w-9 h-9 object-contain shrink-0" 
+              referrerPolicy="no-referrer"
+            />
             <span className="font-extrabold text-[12.5px] sm:text-[14px] text-[#0B47AB] tracking-tight uppercase truncate">
               {language === 'ta' ? 'அகில இந்திய நீதி கட்சி' : 'All India Needhi Katchi'}
             </span>
@@ -339,6 +381,18 @@ export default function App() {
         - Fixed 5 Tabs with dynamic state highlights
         - Rendered only when authenticated past Splash or Login
       */}
+      {/* Floating Toggle to Switch to Admin Portal - Designed cleanly to fit over the mobile screens for testing */}
+      <div className="fixed bottom-20 right-4 z-[9999] select-none text-xs" id="admin-portal-floating-utility">
+        <button 
+          onClick={() => setViewPortal('admin')}
+          className="bg-slate-900 border border-slate-800 hover:bg-slate-850 text-white font-black py-2 px-3 rounded-full shadow-2xl flex items-center gap-1.5 cursor-pointer transition-all hover:scale-105 active:scale-95 border-b-2 border-slate-950"
+          id="portal-toggle-to-admin"
+        >
+          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>🖥️ Switch to Admin Portal</span>
+        </button>
+      </div>
+
       {currentScreen !== 'splash' && currentScreen !== 'login' && (
         <div 
           className="w-full bg-white border-t border-slate-200 shrink-0 flex items-center justify-around z-30 shadow-md pb-safe"

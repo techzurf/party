@@ -98,12 +98,13 @@ export default function LoginView({ language, onLoginSuccess, onJoinPartyClick }
         <div className="absolute -left-10 bottom-2 w-24 h-24 bg-emerald-500/5 rounded-full blur-xl pointer-events-none"></div>
 
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-md p-1 border border-slate-200">
-            <svg viewBox="0 0 100 100" className="w-full h-full text-[#0047AB]">
-              <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="6" />
-              <line x1="50" y1="20" x2="50" y2="80" stroke="currentColor" strokeWidth="8" />
-              <line x1="25" y1="50" x2="75" y2="50" stroke="currentColor" strokeWidth="8" />
-            </svg>
+          <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-md p-1.5 border border-slate-200 shrink-0">
+            <img 
+              src="https://res.cloudinary.com/dv16a8l1l/image/upload/v1781078235/AINK_f4nqzl.png" 
+              alt="AINK Logo" 
+              className="w-full h-full object-contain" 
+              referrerPolicy="no-referrer"
+            />
           </div>
           <div>
             <h2 className="text-xs uppercase tracking-widest font-extrabold text-[#0047AB]">

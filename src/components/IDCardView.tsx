@@ -69,23 +69,24 @@ export default function IDCardView({ language, userData }: IDCardViewProps) {
         {/* Top Header Section of ID card with Top Blue */}
         <div className="bg-gradient-to-r from-[#0047AB] to-[#003B91] text-white px-4 py-4 relative">
           {/* Subtle logo vector watermark background */}
-          <div className="absolute right-2 bottom-0 opacity-10 pointer-events-none">
-            <svg viewBox="0 0 100 100" className="w-24 h-24 text-white">
-              <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="8" />
-              <line x1="50" y1="20" x2="50" y2="80" stroke="currentColor" strokeWidth="10" />
-              <line x1="25" y1="50" x2="75" y2="50" stroke="currentColor" strokeWidth="10" />
-            </svg>
+          <div className="absolute right-2 bottom-1 opacity-15 pointer-events-none">
+            <img 
+              src="https://res.cloudinary.com/dv16a8l1l/image/upload/v1781078235/AINK_f4nqzl.png" 
+              alt="" 
+              className="w-14 h-14 object-contain" 
+              referrerPolicy="no-referrer"
+            />
           </div>
 
           <div className="flex gap-2.5 items-center">
             {/* Round Mini Emblem */}
-            <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center p-0.5 shrink-0 shadow-lg border border-white">
-              <svg viewBox="0 0 100 100" className="w-full h-full text-[#0047AB]">
-                <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="6" />
-                <line x1="50" y1="20" x2="50" y2="80" stroke="currentColor" strokeWidth="8" strokeLinecap="round" />
-                <line x1="25" y1="50" x2="75" y2="50" stroke="currentColor" strokeWidth="8" strokeLinecap="round" />
-                <circle cx="50" cy="50" r="14" fill="#008C45" />
-              </svg>
+            <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center p-1.5 shrink-0 shadow-lg border border-white">
+              <img 
+                src="https://res.cloudinary.com/dv16a8l1l/image/upload/v1781078235/AINK_f4nqzl.png" 
+                alt="AINK Logo" 
+                className="w-full h-full object-contain" 
+                referrerPolicy="no-referrer"
+              />
             </div>
             
             <div className="overflow-hidden">

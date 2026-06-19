@@ -35,6 +35,24 @@ export default function ContactView({ language }: ContactViewProps) {
   return (
     <div className="px-4 py-4 space-y-4 text-xs font-semibold" id="contact-us-view">
       
+      {/* Official Page Header */}
+      <div className="flex items-center gap-2.5 pb-3 border-b border-slate-100" id="contact-section-branding-header">
+        <img 
+          src="https://res.cloudinary.com/dv16a8l1l/image/upload/v1781078235/AINK_f4nqzl.png" 
+          alt="AINK Logo" 
+          className="w-10 h-10 object-contain shrink-0" 
+          referrerPolicy="no-referrer"
+        />
+        <div>
+          <h2 className="text-[13px] font-black text-[#0047AB] tracking-wide uppercase leading-tight">
+            {language === 'ta' ? 'தொடர்புகளுக்கு' : 'CONTACT HELPLINE'}
+          </h2>
+          <p className="text-[10px] text-[#008C45] font-extrabold mt-0.5 leading-none">
+            {language === 'ta' ? 'அகில இந்திய நீதி கட்சி உதவிப் பிரிவு' : 'AINK Support & State Headquarters'}
+          </p>
+        </div>
+      </div>
+      
       {/* 1. Address block with premium material card details */}
       <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-xs space-y-3">
         <h3 className="font-extrabold text-slate-800 text-xs border-b border-slate-100 pb-2 select-none uppercase tracking-wide flex items-center gap-1.5">

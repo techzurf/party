@@ -58,6 +58,24 @@ export default function EventsView({ language, eventItems, setEventItems }: Even
   return (
     <div className="px-4 py-4 space-y-4 font-medium" id="events-list-canvas">
       
+      {/* Official Page Header */}
+      <div className="flex items-center gap-2.5 pb-3 border-b border-slate-100" id="events-section-branding-header">
+        <img 
+          src="https://res.cloudinary.com/dv16a8l1l/image/upload/v1781078235/AINK_f4nqzl.png" 
+          alt="AINK Logo" 
+          className="w-10 h-10 object-contain shrink-0" 
+          referrerPolicy="no-referrer"
+        />
+        <div>
+          <h2 className="text-[13px] font-black text-[#0047AB] tracking-wide uppercase leading-tight">
+            {language === 'ta' ? 'கட்சி நிகழ்வுகள்' : 'CAMPAIGN EVENTS'}
+          </h2>
+          <p className="text-[10px] text-[#008C45] font-extrabold mt-0.5 leading-none">
+            {language === 'ta' ? 'அகில இந்திய நீதி கட்சி மக்கள் தொடர்புப் பிரிவு' : 'AINK Public Relations & Assemblies'}
+          </p>
+        </div>
+      </div>
+      
       {/* Banner Slogan */}
       <div className="bg-[#0047AB]/5 border border-[#0047AB]/10 p-3.5 rounded-2xl flex items-center gap-3 select-none">
         <Sparkles className="w-5 h-5 text-amber-500 fill-amber-500 shrink-0" />

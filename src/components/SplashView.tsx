@@ -33,33 +33,12 @@ export default function SplashView({ language, onEnter }: SplashViewProps) {
       {/* Centered Logo & Brand name */}
       <div className="flex flex-col items-center justify-center gap-6 my-auto">
         <div className="relative w-32 h-32 rounded-full border-4 border-white/90 bg-white shadow-2xl flex items-center justify-center p-3 animate-pulse duration-[3000ms]">
-          {/* Custom designed government-grade vector emblem */}
-          <svg viewBox="0 0 100 100" className="w-full h-full text-[#0047AB]">
-            <defs>
-              <linearGradient id="blueGreen" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#0047AB" />
-                <stop offset="100%" stopColor="#008C45" />
-              </linearGradient>
-            </defs>
-            {/* Inner Ring */}
-            <circle cx="50" cy="50" r="46" fill="none" stroke="url(#blueGreen)" strokeWidth="3" />
-            <circle cx="50" cy="50" r="41" fill="none" stroke="#0047AB" strokeWidth="1" strokeDasharray="4 2" />
-
-            {/* Rising Sun elements in background */}
-            <path d="M 50 50 L 30 25 M 50 50 L 35 15 M 50 50 L 50 10 M 50 50 L 65 15 M 50 50 L 70 25" stroke="red" strokeWidth="2.5" opacity="0.8" />
-            <circle cx="50" cy="50" r="28" fill="white" />
-            
-            {/* Justice Scales Centerpiece */}
-            <path d="M 32 58 L 68 58" stroke="#0047AB" strokeWidth="3" strokeLinecap="round" />
-            <path d="M 50 35 L 50 68" stroke="#0047AB" strokeWidth="3.5" />
-            <path d="M 40 68 L 60 68" stroke="#0047AB" strokeWidth="4.5" strokeLinecap="round" />
-            
-            {/* Hanging scale cups */}
-            <path d="M 32 58 L 26 73 L 38 73 Z" fill="#008C45" stroke="#0047AB" strokeWidth="1" />
-            <path d="M 68 58 L 62 73 L 74 73 Z" fill="#008C45" stroke="#0047AB" strokeWidth="1" />
-
-            <circle cx="50" cy="35" r="3.5" fill="red" />
-          </svg>
+          <img 
+            src="https://res.cloudinary.com/dv16a8l1l/image/upload/v1781078235/AINK_f4nqzl.png" 
+            alt="Akhila India Needhi Katchi Logo" 
+            className="w-full h-full object-contain" 
+            referrerPolicy="no-referrer"
+          />
           {/* Mini star at bottom */}
           <div className="absolute -bottom-1 bg-red-600 text-white rounded-full p-1 border-2 border-white">
             <Star className="w-3 h-3 fill-current text-white" />
